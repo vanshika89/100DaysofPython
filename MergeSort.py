@@ -1,20 +1,21 @@
-def mergeSort(array):
-    if len(array) <= 1:
+import random
+
+
+def merge_sort(array):
+    if len(array) <= 1: # Base case: arrays of length 1 or less are already sorted
         return
 
-    # Split the array into two halves
+    # Spliting the array into two halves
     mid = len(array) // 2
     left_array = array[:mid]
     right_array = array[mid:]
 
-    # Recursively sort the two halves
-    mergeSort(left_array)
-    mergeSort(right_array)
+    # Recursively sorting the two halves
+    merge_sort(left_array)
+    merge_sort(right_array)
 
-    # Merge the sorted halves back into the original array
-    i = 0
-    j = 0
-    k = 0
+    # Merging the sorted arrays into the original array
+    i = j = k = 0
     while i < len(left_array) and j < len(right_array):
         if left_array[i] < right_array[j]:
             array[k] = left_array[i]
@@ -35,6 +36,7 @@ def mergeSort(array):
         k += 1
 
 
-input_array = [2, 6, 2, 8, 9, 6, 7, 3]
-mergeSort(input_array)
-print("Sorted array:", input_array)
+input_array = [random.randint(1, 100) for _ in range(10)]
+print("Random input array:", input_array)
+merge_sort(input_array)
+print("Sorted array", input_array)
