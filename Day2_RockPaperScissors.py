@@ -42,5 +42,5 @@ try:
         print("It's a draw!")
     elif computer_input < user_input:
         print("You win!")
-except (KeyError, ValueError) as e:
-    print("You Typed an invalid number!", e)
+except (KeyError, ValueError):
+    print("You Typed an invalid number! You loose")
