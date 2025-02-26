@@ -19,13 +19,13 @@ while not game_over:
     guessed_letter = input("Guess a letter: ").lower()
     for letter in chosen_word:
         if guessed_letter == letter:
-            display+=guessed_letter
+            display += guessed_letter
             correct_letters.append(guessed_letter)
         elif letter in correct_letters:
-            correct_letters.append(guessed_letter)
+            display += guessed_letter
         else:
             # life -= 1
-            display.append('_')
+            display += '_'
     print('Word to guess', ''.join(display))
     # if life <= 0 or '_' not in display:
     if '_' not in display:
