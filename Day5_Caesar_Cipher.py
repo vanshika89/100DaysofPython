@@ -4,8 +4,12 @@ alphabet = list(string.ascii_lowercase)
 
 
 def encrypt_decrypt(user_prefrence, original_text, shift_amount):
-    # for letters in original_text:
-    pass
+    if user_prefrence == 'encode:':
+        pass
+    elif user_prefrence == 'decode':
+        pass
+    else:
+        print("Wrong input please try again..")
 
 
 game = True
