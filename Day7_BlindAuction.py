@@ -4,7 +4,7 @@ bid_list = {}
 def max_bid(bidding_dictionary):
     max_value = max(bidding_dictionary.values())
     max_key = [key for key in bidding_dictionary if bidding_dictionary[key] == max_value]
-    print('The maximum bid amount is given by', * max_key)
+    print('The winner is', *max_key, f'with a bid of ${max_value}')
 
 
 continue_bidding = True
