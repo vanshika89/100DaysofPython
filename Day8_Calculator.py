@@ -1,20 +1,38 @@
-bid_list = {}
+def add(n1, n2):
+    return n1 + n2
 
 
-def max_bid(bidding_dictionary):
-    max_value = max(bidding_dictionary.values())
-    max_key = [key for key in bidding_dictionary if bidding_dictionary[key] == max_value]
-    print('The winner is', *max_key, f'with a bid of ${max_value}')
+def subtract(n1, n2):
+    return n1 - n2
 
 
-continue_bidding = True
-while continue_bidding:
-    bidder_name = input("What is your name?: ")
-    bid_amount = int(input("What is your bid?: $"))
-    bid_list[bidder_name] = bid_amount
-    should_continue = input("Are there any other bidders? Type 'yes' or 'no':\n").lower()
-    if should_continue == 'yes':
-        print("\n" * 100)
+def multiply(n1, n2):
+    return n1 * n2
+
+
+def divide(n1, n2):
+    return n1 / n2
+
+
+operations = {
+    "+": add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide,
+}
+should_accumulate = True
+number1 = float(input("What's the first number?: "))
+while should_accumulate:
+    for symbol in operations:
+        print(symbol)
+    operation = input("Pick an operation: ")
+    if operation in operations:
+        number2 = float(input("What's the next number?: "))
+        answer = operations[operation](number1, number2)
+        print(f"{number1} {operation}{number2} = {answer}")
     else:
-        max_bid(bid_list)
-        continue_bidding = False
+        print("Choose from given operations: ")
+
+    choice = input(f"Do you want to continue with calculating with {answer}? tyoe 'y' for yes and 'n' for no:" )
+    if choice=='y':
+        number1 = answer
